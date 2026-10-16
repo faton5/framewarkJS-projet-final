@@ -19,6 +19,10 @@ Le projet utilise React, React Router et Vite. Les données sont conservées dan
 
 La connexion est simulée, aucun mot de passe n’est demandé.
 
+## Document de présentation
+
+Le document [`docs/Presentation_professeur.docx`](docs/Presentation_professeur.docx) présente l’objectif, les fonctionnalités, les comptes, les routes et le parcours technique d’une réservation.
+
 ## Routes
 
 - `/login` : choix du compte
