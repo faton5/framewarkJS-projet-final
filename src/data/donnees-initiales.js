@@ -7,12 +7,12 @@ export const COMPTES_INITIAUX = [
 ];
 
 export const EQUIPEMENTS_INITIAUX = [
-  { id: 101, nom: 'Ordinateur portable 01', categorie: 'Informatique', description: 'Ordinateur portable avec chargeur et souris USB.', localisation: 'Salle informatique B201' },
-  { id: 102, nom: 'Ordinateur portable 02', categorie: 'Informatique', description: 'Second ordinateur portable avec chargeur et souris USB.', localisation: 'Salle informatique B201' },
-  { id: 103, nom: 'Vidéoprojecteur mobile', categorie: 'Projection', description: 'Vidéoprojecteur avec câble HDMI et télécommande.', localisation: 'Réserve B204' },
-  { id: 104, nom: 'Appareil photo numérique', categorie: 'Photo', description: 'Appareil photo avec objectif, batterie et carte mémoire.', localisation: 'Studio C102' },
-  { id: 105, nom: 'Microphone USB', categorie: 'Audio', description: 'Microphone de bureau avec pied et câble USB.', localisation: 'Studio C102' },
-  { id: 106, nom: 'Enceinte portable', categorie: 'Audio', description: 'Enceinte rechargeable avec câble audio et alimentation.', localisation: 'Réserve B204' }
+  { id: 101, nom: 'Ordinateur portable 01', categorie: 'Informatique', icon: 'laptop', description: 'Ordinateur portable avec chargeur et souris USB.', localisation: 'Salle informatique B201' },
+  { id: 102, nom: 'Ordinateur portable 02', categorie: 'Informatique', icon: 'laptop', description: 'Second ordinateur portable avec chargeur et souris USB.', localisation: 'Salle informatique B201' },
+  { id: 103, nom: 'Vidéoprojecteur mobile', categorie: 'Projection', icon: 'projector', description: 'Vidéoprojecteur avec câble HDMI et télécommande.', localisation: 'Réserve B204' },
+  { id: 104, nom: 'Appareil photo numérique', categorie: 'Photo', icon: 'camera', description: 'Appareil photo avec objectif, batterie et carte mémoire.', localisation: 'Studio C102' },
+  { id: 105, nom: 'Microphone USB', categorie: 'Audio', icon: 'microphone', description: 'Microphone de bureau avec pied et câble USB.', localisation: 'Studio C102' },
+  { id: 106, nom: 'Enceinte portable', categorie: 'Audio', icon: 'speaker', description: 'Enceinte rechargeable avec câble audio et alimentation.', localisation: 'Réserve B204' }
 ];
 
 export const RESERVATIONS_INITIALES = [];
