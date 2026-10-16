@@ -2,21 +2,21 @@ import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import { Icon } from './Icons';
 
+function NavigationLink({ to, icon, children }) {
+  return <NavLink to={to} className="sidebar-link"><Icon name={icon} size={18} /><span>{children}</span></NavLink>;
+}
+
 export default function Layout() {
   const { user, logout } = useApp();
   const navigate = useNavigate();
+  const isManager = user?.role === 'manager';
   return <div className="app-shell">
-    <header className="topbar">
-      <NavLink to="/" className="brand"><span className="brand-mark"><Icon name="box" size={22} /></span><span>Campus <b>Matériel</b></span></NavLink>
-      {user && <nav className="main-nav">
-        <NavLink to="/catalogue">Catalogue</NavLink>
-        {user.role === 'student' && <NavLink to="/mes-reservations">Mes réservations</NavLink>}
-        {user.role === 'manager' && <NavLink to="/gestion">Gestion du catalogue</NavLink>}
-      </nav>}
-      {user && <div className="user-menu"><div className="avatar">{user.nom.split(' ').map((word) => word[0]).join('')}</div><div className="user-copy"><strong>{user.nom}</strong><span>{user.role === 'manager' ? 'Responsable' : 'Étudiant'}</span></div><button className="icon-button" onClick={() => { logout(); navigate('/login'); }} title="Se déconnecter"><Icon name="logout" size={18} /></button></div>}
-    </header>
-    {user && <div className="mobile-nav"><NavLink to="/catalogue">Catalogue</NavLink>{user.role === 'student' && <NavLink to="/mes-reservations">Réservations</NavLink>}{user.role === 'manager' && <NavLink to="/gestion">Gestion</NavLink>}</div>}
-    <main className="main-content"><Outlet /></main>
-    {user && <footer>Campus Matériel <span>•</span> Plateforme de prêt de l’établissement</footer>}
+    <aside className="sidebar">
+      <NavLink to="/" className="brand"><span className="brand-mark"><Icon name="box" size={21} /></span><span>Campus <b>Matériel</b></span></NavLink>
+      <div className="sidebar-label">Navigation</div>
+      <nav className="sidebar-nav"><NavigationLink to="/catalogue" icon="home">Catalogue</NavigationLink>{isManager ? <NavigationLink to="/gestion" icon="settings">Gestion du catalogue</NavigationLink> : <NavigationLink to="/mes-reservations" icon="book">Mes réservations</NavigationLink>}</nav>
+      <div className="sidebar-bottom"><div className="sidebar-label">Aide</div><NavigationLink to="/acces-refuse" icon="help">Centre d’aide</NavigationLink><div className="sidebar-tip"><span className="tip-dot" /><div><strong>Besoin d’un équipement ?</strong><small>Consultez le catalogue</small></div></div></div>
+    </aside>
+    <div className="workspace"><header className="topbar"><div className="mobile-brand"><span className="brand-mark"><Icon name="box" size={18} /></span>Campus <b>Matériel</b></div><div className="topbar-context">{isManager ? 'Administration' : 'Espace étudiant'} <span>/</span> Catalogue</div><div className="topbar-actions"><button className="round-button" title="Notifications"><Icon name="bell" size={18} /><span className="notification-dot" /></button><div className="user-menu"><div className="avatar">{user?.nom.split(' ').map((word) => word[0]).join('')}</div><div className="user-copy"><strong>{user?.nom}</strong><span>{isManager ? 'Responsable' : 'Étudiant'}</span></div><button className="icon-button" onClick={() => { logout(); navigate('/login'); }} title="Se déconnecter"><Icon name="logout" size={17} /></button></div></div></header><main className="main-content"><Outlet /></main><footer>Campus Matériel <span>•</span> Plateforme de prêt de l’établissement</footer></div>
   </div>;
 }
