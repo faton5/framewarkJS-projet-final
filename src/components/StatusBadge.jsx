@@ -1,0 +1,1 @@
+export default function StatusBadge({ available = true }) { return <span className={`status ${available ? 'available' : 'unavailable'}`}><span className="status-dot" />{available ? 'Disponible' : 'Réservé'}</span>; }

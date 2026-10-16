@@ -1,0 +1,4 @@
+export function Icon({ name, size = 20 }) {
+  const paths = { search: 'M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm6-2 4 4', box: 'M21 8 12 3 3 8l9 5 9-5Zm-18 0v8l9 5 9-5V8M12 13v8', calendar: 'M7 3v4m10-4v4M4 10h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z', arrow: 'M5 12h14m-6-6 6 6-6 6', close: 'M6 6l12 12M18 6 6 18', check: 'm5 12 4 4L19 6', edit: 'M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4L16.5 3.5Z', trash: 'M3 6h18m-2 0-1 14H6L5 6m3 0V3h8v3', pin: 'M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z M12 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4', plus: 'M12 5v14m-7-7h14', logout: 'M10 17l5-5-5-5m5 5H3m10-9h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5' };
+  return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={paths[name]} /></svg>;
+}
